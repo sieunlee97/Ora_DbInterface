@@ -1,3 +1,11 @@
+#### 20210224 (수)
+- <작업예정>
+- JUnit CRUD 테스트
+- jsp 화면에서 CRUD 작업
+- 과제물 정리
+- egov 마무리
+- C언어 구구단 프로그램 설명
+
 #### 20210223 (화)
 - 오라클에 member테이블 생성 + 더미데이터 입력
 - Ora_DbInterfacee 스프링 MVC 프로젝트 생성
@@ -10,3 +18,11 @@
 - log4jdbc.log4j2.properties 필수 생성 : 역할 - 쿼리를 콘솔에서 디버그 가능
 - mappers 폴더 생성 후 sampleMapper.xml 쿼리파일생성(CRUD쿼리)
 - 쿼리에서 발생되는 반환값을 담을 공간 = VO클래스로 해결.
+- service패키지(MemberService, MemberServiceImpl, MemberDAO)
+- > @Repository, @Service 어노테이션 추가
+- servlet-context.xml에 component-scan 추가
+
+```
+<context:component-scan base-package="com.human.service" />
+```
+- JUnit 테스트 
