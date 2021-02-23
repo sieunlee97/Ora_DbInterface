@@ -5,3 +5,8 @@
 - 메이븐 업데이트.
 - 프로젝트 Facets부분 web_module = 3.1 변경
 - web.xml의 웹모듈버전 2.5 -> 3.1 변경
+- 깃 연동.
+- root-context.xml에 DB커넥션 Bean 생성
+- log4jdbc.log4j2.properties 필수 생성 : 역할 - 쿼리를 콘솔에서 디버그 가능
+- mappers 폴더 생성 후 sampleMapper.xml 쿼리파일생성(CRUD쿼리)
+- 쿼리에서 발생되는 반환값을 담을 공간 = VO클래스로 해결.
