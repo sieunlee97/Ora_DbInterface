@@ -12,8 +12,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.human.service.MemberService;
+import com.human.vo.MemberVO;
 
 /**
  * Handles requests for the application home page.
@@ -26,6 +28,11 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
+	@RequestMapping(value="/member_insert", method=RequestMethod.POST)
+	public String member_insert(MemberVO memberVO, RedirectAttributes rdate) throws Exception {
+		memberService.memberInsert(memberVO);
+		return "redirect:/";
+	}
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 * @throws Exception 
