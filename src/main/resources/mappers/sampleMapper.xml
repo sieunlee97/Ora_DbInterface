@@ -5,7 +5,7 @@
 	INSERT INTO member
 	(userid, userpw, username, email, regdate, updatedate) 
 	VALUES 
-	(#{user2}, #{1234}, #{이시은}, #{user2@abc.com}, sysdate, sysdate)
+	(#{userid}, #{userpw}, #{username}, #{email}, sysdate, sysdate)
 </insert>
 <select id="memberSelect" resultType="com.human.vo.MemberVO">
 	SELECT * FROM member ORDER BY regdate DESC
@@ -13,12 +13,12 @@
 <select id="memberView" resultType="com.human.vo.MemberVO">
 	SELECT * FROM member WHERE userid=#{userid}
 </select>
-<update id="updateMember">
+<update id="memberUpdate">
 	UPDATE member SET
 	userpw = #{userpw},
 	username=#{username},
 	email=#{email},
-	updatedate=sydate,
+	updatedate=sysdate
 	WHERE userid=#{userid}
 </update>
 <delete id="memberDelete">

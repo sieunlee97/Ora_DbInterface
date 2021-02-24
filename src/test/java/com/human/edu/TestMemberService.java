@@ -2,6 +2,7 @@ package com.human.edu;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.sql.DataSource;
@@ -12,6 +13,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.human.service.MemberService;
+import com.human.vo.MemberVO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations ={"file:src/main/webapp/WEB-INF/spring/**/*.xml"})
@@ -20,6 +22,37 @@ public class TestMemberService {
 	private DataSource dataSource;
 	@Inject
 	private MemberService memberService;
+	
+	@Test
+	public void memberDelete() throws Exception {
+		List<MemberVO> memberList = memberService.memberSelect();
+		System.out.println("디버그 top1 구하기 : "+ memberList.get(0).getUserid());
+		if(memberList.size()>1) {
+			memberService.memberDelete(memberList.get(0).getUserid());	
+		} else {
+			System.out.println("삭제할 수 있는 사용자가 1명입니다.");
+		}
+	}
+	@Test
+	public void memberUpdate() throws Exception {
+		MemberVO memberVO = new MemberVO();
+		memberVO.setUserid("user2");
+		memberVO.setUsername("수정사용자");
+		memberVO.setUserpw("4321");
+		memberVO.setEmail("abc@abc.com");
+		memberService.memberUpdate(memberVO);
+	}
+	
+	@Test
+	public void memberInsert() throws Exception {
+		List<MemberVO> memberList = memberService.memberSelect();
+		MemberVO memberVO = new MemberVO();
+		memberVO.setUserid("user_"+ memberList.size());
+		memberVO.setUsername("사용자_" + memberList.size());
+		memberVO.setUserpw("1234");
+		memberVO.setEmail("user_"+ memberList.size()+"@abc.com");
+		memberService.memberInsert(memberVO);
+	}
 	
 	@Test
 	public void memberSelect() throws Exception {
