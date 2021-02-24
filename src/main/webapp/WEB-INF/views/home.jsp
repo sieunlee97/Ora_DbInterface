@@ -43,20 +43,20 @@
 <table>
 	<th>ID</th><th>암호</th><th>이름</th><th>이메일</th><th>등록일</th><th>수정일</th><th>수정/삭제</th>
 	<c:forEach items="${memberList}" var="memberVO" varStatus="cnt">
-	<form name="form_action" action="/member_update" method="post">
 	<tr>
+	<form name="form_action" action="<c:url value='/' />member_update" method="post">
 		<td><input name="userid" value="${memberVO.userid}"></td>
 		<td><input name="userpw" value="${memberVO.userpw}"></td>
 		<td><input name="username" value="${memberVO.username}"></td>
 		<td><input name="email" value="${memberVO.email}"></td>
-		<td><input name="regdate" value="<fmt:formatDate pattern='yyyy-MM-dd hh:mm:ss' value='${memberVO.regdate}'/>" readonly></td>
-		<td><input name="updatedate" value="<fmt:formatDate pattern='yyyy-MM-dd hh:mm:ss' value='${memberVO.updatedate}'/>" readonly></td>
+		<td><input name="regdate" value="<fmt:formatDate pattern='yyyy-MM-dd hh:mm:ss' value='${memberVO.regdate}'/>" ></td>
+		<td><input name="updatedate" value="<fmt:formatDate pattern='yyyy-MM-dd hh:mm:ss' value='${memberVO.updatedate}'/>" ></td>
 		<td>
 			<button class="btn_update" type="button">수정</button>
 			<button class="btn_delete" type="button">삭제</button>
 		</td>
-	</tr>
 	</form>
+	</tr>
 	</c:forEach>
 </table>
 </div>
@@ -64,10 +64,17 @@
 $(document).ready(function(){
 	$(".btn_update").on("click", function() {
 		//alert("수정버튼 클릭");
-		$(this).parents("form[name='form_action']");
+		var click_element = $(this).parent().parent().find("form[name='form_action']");
+		click_element.submit();
+		alert("수정완료");
 	});
 	$(".btn_delete").on("click", function() {
-		alert("삭제버튼 클릭");
+		//alert("삭제버튼 클릭");
+		if(confirm("정말로 삭제하시겠습니까?")){
+			var click_element = $(this).parent().parent().find("form[name='form_action']");
+			click_element.attr("action", "<c:url value='/' />member_delete");
+			click_element.submit();
+		}
 	});
 });
 </script>

@@ -18,7 +18,8 @@
 	userpw = #{userpw},
 	username=#{username},
 	email=#{email},
-	updatedate=sysdate
+	regdate=#{regdate},
+	updatedate=#{updatedate}
 	WHERE userid=#{userid}
 </update>
 <delete id="memberDelete">

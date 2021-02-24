@@ -2,14 +2,17 @@ package com.human.vo;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class MemberVO {
 	private String userid;
 	private String userpw;
 	private String username;
 	private String email;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date regdate;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedate;
-	
 	
 	
 	@Override
@@ -53,6 +56,5 @@ public class MemberVO {
 	public void setUpdatedate(Date updatedate) {
 		this.updatedate = updatedate;
 	}
-	
 	
 }

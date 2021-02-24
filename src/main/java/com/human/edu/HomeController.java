@@ -12,7 +12,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.human.service.MemberService;
 import com.human.vo.MemberVO;
@@ -27,9 +26,22 @@ public class HomeController {
 	private MemberService memberService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	@RequestMapping(value="/member_delete",method=RequestMethod.POST)
+	public String member_delete(MemberVO memberVO) throws Exception{
+		String userid = memberVO.getUserid();
+		memberService.memberDelete(userid);
+		return "redirect:/";
+	}
+	
+
+	@RequestMapping(value="/member_update", method=RequestMethod.POST)
+	public String member_update(MemberVO memberVO) throws Exception {
+		memberService.memberUpdate(memberVO);
+		return "redirect:/";
+	}
 	
 	@RequestMapping(value="/member_insert", method=RequestMethod.POST)
-	public String member_insert(MemberVO memberVO, RedirectAttributes rdate) throws Exception {
+	public String member_insert(MemberVO memberVO) throws Exception {
 		memberService.memberInsert(memberVO);
 		return "redirect:/";
 	}
