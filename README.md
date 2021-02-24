@@ -2,6 +2,8 @@
 - <작업예정>
 - [x] JUnit CRUD 테스트
 - [X] jsp 화면에서 CRUD 작업
+<img width="100%" src="https://user-images.githubusercontent.com/63999784/108972078-4d744600-76c6-11eb-9e30-c58e7f3f18a1.PNG">
+
 - [X] 과제물 정리
 - [ ] egov 마무리
 - [ ] C언어 구구단 프로그램 설명
