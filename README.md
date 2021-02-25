@@ -1,3 +1,35 @@
+#### 20210225 (목)
+- Update쿼리에서 regdate=sysdate 를 regdate=#{regdate}로 사용자가 수정 가능하도록 수정함.(updatedate도 수정)
+- 따라서 Junit테스트 Update 메소드 수정
+
+```java
+	Date nowDate = new Date();
+		memberVO.setRegdate(nowDate);
+		memberVO.setUpdatedate(nowDate);
+```
+- > 원래대로 테스트하면 regdate, updatedate에 null이 들어가서 오류 발생. 날짜 형식은 null이 들어갈 수 없다.
+- 달력 기능 추가
+- > 아래 script, link 추가.
+
+```
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="./jquery-ui-1.12.1/datepicker-ko.js"></script>
+```
+- regdate, updatedate의 input에 class="date1", class="date2" 추가
+- JQuery 추가
+
+```
+$(".date1").datepicker({
+	dateFormat:"yy-mm-dd"
+});
+
+$(".date2").datepicker({
+	dateFormat:"yy-mm-dd"
+});
+```
+
 #### 20210224 (수)
 - <작업예정>
 - [x] JUnit CRUD 테스트
