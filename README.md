@@ -4,8 +4,8 @@
 
 ```java
 	Date nowDate = new Date();
-		memberVO.setRegdate(nowDate);
-		memberVO.setUpdatedate(nowDate);
+	memberVO.setRegdate(nowDate);
+	memberVO.setUpdatedate(nowDate);
 ```
 - > 원래대로 테스트하면 regdate, updatedate에 null이 들어가서 오류 발생. 날짜 형식은 null이 들어갈 수 없다.
 - 달력 기능 추가

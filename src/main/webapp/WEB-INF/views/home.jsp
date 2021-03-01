@@ -19,7 +19,7 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src="./jquery-ui-1.12.1/datepicker-ko.js"></script>
+	<!-- script src="./jquery-ui-1.12.1/datepicker-ko.js"></script -->
 	
 </head>
 <body>
@@ -86,6 +86,9 @@ $(document).ready(function(){
 	});
 	$(".date2").datepicker({
 		dateFormat:"yy-mm-dd"
+		,showOn: "both" //button:버튼을 표시하고,버튼을 눌러야만 달력 표시 ^ both:버튼을 표시하고,버튼을 누르거나 input을 클릭하면 달력 표시  
+		,buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif" //버튼 이미지 경로
+		,buttonImageOnly: true //기본 버튼의 회색 부분을 없애고, 이미지만 보이게 함
 	});
 	$(".btn_update").on("click", function() {
 		//alert("수정버튼 클릭");
